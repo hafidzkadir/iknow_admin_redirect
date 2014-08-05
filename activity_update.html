@@ -16,25 +16,46 @@
 				<!--script type="text/javascript" src="http://www.interactive1.jpa.gov.my/ekpa/iknow/admin/js/activity_update.js"-->
 				<script type="text/javascript">	
 					$(document).ready(function() {
-						$("#kemaskini_employee").click(function(){
-							var formData = $("#form_kemaskini_employee").serialize();
+						$("#kemaskini_activity").click(function(){
+							var formData = $("#form_kemaskini_activity").serialize();
 							$.ajax({
 								type: "POST",
-								url: "http://www.interactive1.jpa.gov.my/ekpa/iknow/admin/services/employee_update.php",
+								url: "services/activity_update.php",
+								cache: false, //jika false-data sebelumnya tidak akan bertindih
+								data: formData,// penghantaran data secara pukal
+								success: onSuccess//sekiranya berjaya, apa proses seterusnya,function onsuccess
+							});
+							return false;
+						});
+						$('#hapus_activity').click(function(){
+							$.ajax({
+								type: "POST",
+								url: "services/activity_delete.php",
 								cache: false,
-								data: formData,
-								success: onSuccess_employee
+								data: {id: $('#id_aktiviti').val()},
+								success: onSuccess//sekiranya berjaya, apa proses seterusnya,function onsuccess
 							});
 							return false;
 						});
 					});
-					function onSuccess_employee(data) {
+					function onSuccess(data) {
 						$('#mesej_button').show();
 						$('#kemaskini_button').hide();
-						(data=='sukses')? $("#mesej_employee").text('Maklumat berjaya disimpan'):$("#mesej_employee").text('Maklumat gagal disimpan');
-						setTimeout(	function() { $( "#mesej_button" ).hide(); },1800 );
-						setTimeout(	function() { $.mobile.navigate( "#employeeListPage"); },3000 );
-					}//end function	
+						$('#hapus_button').hide();
+						
+						if (data=='sukses'){
+							$("#mesej_activity").text('Maklumat berjaya dikemaskini');
+							setTimeout(	function() { $( "#mesej_button" ).hide(); },1800 );
+						} else if (data=='hapus'){
+							$("#mesej_activity").text('Maklumat berjaya dihapus');
+							setTimeout(	function() { $( "#mesej_button" ).hide(); },1800 );
+						} else {
+							$("#mesej_activity").text('Maklumat gagal dikemaskini');
+							setTimeout(	function() { $( "#mesej_button" ).hide(); },1800 );
+						}//end if 
+						
+						setTimeout(	function() { $.mobile.navigate( "#activityListPage"); },3000 ); //history backpage - keluar
+					}//end function
 					
 				</script>
 				<form id="form_kemaskini_activity">
