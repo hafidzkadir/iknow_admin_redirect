@@ -13,7 +13,30 @@
 					</ol>
 				</div>
 				<hr/>
-				<script type="text/javascript" src="http://www.interactive1.jpa.gov.my/ekpa/iknow/admin/js/activity_update.js"></script>
+				<!--script type="text/javascript" src="http://www.interactive1.jpa.gov.my/ekpa/iknow/admin/js/activity_update.js"-->
+				<script type="text/javascript">	
+					$(document).ready(function() {
+						$("#kemaskini_employee").click(function(){
+							var formData = $("#form_kemaskini_employee").serialize();
+							$.ajax({
+								type: "POST",
+								url: "http://www.interactive1.jpa.gov.my/ekpa/iknow/admin/services/employee_update.php",
+								cache: false,
+								data: formData,
+								success: onSuccess_employee
+							});
+							return false;
+						});
+					});
+					function onSuccess_employee(data) {
+						$('#mesej_button').show();
+						$('#kemaskini_button').hide();
+						(data=='sukses')? $("#mesej_employee_sukses").text('Maklumat berjaya disimpan'):$("#mesej_employee_error").text('Maklumat gagal disimpan');
+						setTimeout(	function() { $( "#mesej_button" ).hide(); },1800 );
+						setTimeout(	function() { $.mobile.navigate( "#employeeListPage"); },4800 );
+					}//end function	
+					
+				</script>
 				<form id="form_kemaskini_activity">
 					<input type="hidden" id="id_aktiviti" name="id_aktiviti" value=""  />
 					<label for="select-aktiviti" class="select">Jenis Aktiviti</label>
