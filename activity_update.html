@@ -31,9 +31,9 @@
 					function onSuccess_employee(data) {
 						$('#mesej_button').show();
 						$('#kemaskini_button').hide();
-						(data=='sukses')? $("#mesej_employee_sukses").text('Maklumat berjaya disimpan'):$("#mesej_employee_error").text('Maklumat gagal disimpan');
+						(data=='sukses')? $("#mesej_employee").text('Maklumat berjaya disimpan'):$("#mesej_employee").text('Maklumat gagal disimpan');
 						setTimeout(	function() { $( "#mesej_button" ).hide(); },1800 );
-						setTimeout(	function() { $.mobile.navigate( "#employeeListPage"); },4800 );
+						setTimeout(	function() { $.mobile.navigate( "#employeeListPage"); },3000 );
 					}//end function	
 					
 				</script>
