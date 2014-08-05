@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+	<head></head>
+	<body>
+		<div id="activityPage" data-role="page" data-transition="flip" data-add-back-btn="true" data-back-btn-text="Kembali">
+			<div data-role="header"><h1>Diskripsi Aktiviti</h1></div>
+			<div data-role="content">
+				<div style="font-size:13px;"><b>Arahan :</b><br/>
+					<ol align="justify" style="padding-left:14px">
+						<li>Semua ruangan adalah <b style="color:red">WAJIB</b> diisi.</li>
+						<li>Sekiranya tiada masa atau tempoh yang ditetapkan, sila masukkan tanda '<b>-</b>' pada ruangan <b>Masa/Tempoh</b>.</li>
+						<li>Sila masukkan format tarikh ini; <br/> * contoh: 2 Julai 2014 (Rabu), pada ruangan <b>Tarikh Aktiviti</b>.</li>
+					</ol>
+				</div>
+				<hr/>
+				<script type="text/javascript" src="http://www.interactive1.jpa.gov.my/ekpa/iknow/admin/js/activity_update.js"></script>
+				<form id="form_kemaskini_activity">
+					<input type="hidden" id="id_aktiviti" name="id_aktiviti" value=""  />
+					<label for="select-aktiviti" class="select">Jenis Aktiviti</label>
+					<select name="select-aktiviti" id="select-aktiviti">
+						<option>Aktiviti</option>
+						<option value="1">Mesyuarat</option>
+						<option value="2">Seminar</option>
+						<option value="3">Taklimat</option>
+						<option value="4">Majlis</option>
+						<option value="5">Program</option>
+						<option value="6">Bengkel</option>
+						<option value="7">Konvensyen</option>
+						<option value="8">Kursus</option>
+					</select>
+					<label for="nama_aktiviti">Nama Aktiviti</label>
+					<input type="text" id="nama_aktiviti" name="nama_aktiviti" value=""  />
+					<label for="lokasi_aktiviti">Tempat/Lokasi</label>
+					<input type="text" id="lokasi_aktiviti" name="lokasi_aktiviti" value=""  />
+					<label for="tarikh_aktiviti">Tarikh Aktiviti</label>
+					<input type="text" id="tarikh_aktiviti" name="tarikh_aktiviti" value=""  />
+					<label for="masa_aktiviti">Masa Aktiviti</label>
+					<input type="text" id="masa_aktiviti" name="masa_aktiviti" value=""  />
+					<label for="tarikh_sebenar" >Tarikh Sebenar</label>
+					<fieldset data-role="controlgroup" data-type="horizontal"> 
+						<select name="select-hari" id="select-hari">
+							<option>Hari</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select name="select-bulan" id="select-bulan">
+							<option>Bulan</option>
+							<option value="1">Jan</option>
+							<option value="2">Feb</option>
+							<option value="3">Mac</option>
+							<option value="4">Apr</option>
+							<option value="5">Mei</option>
+							<option value="6">Jun</option>
+							<option value="7">Jul</option>
+							<option value="8">Ogo</option>
+							<option value="9">Sep</option>
+							<option value="10">Okt</option>
+							<option value="11">Nov</option>
+							<option value="12">Dis</option>
+						</select>
+						<select name="select-tahun" id="select-tahun">
+							<option>Tahun</option>
+							<option value="2014">2014</option><option value="2015">2015</option>
+							<option value="2016">2016</option><option value="2017">2017</option>
+						</select>
+					</fieldset>
+					<hr/>
+					<div id="kemaskini_button"><button data-theme="b" id="kemaskini_activity" type="submit">Kemaskini</button></div>
+					<div id="hapus_button"><button data-theme="c" id="hapus_activity" type="button"><font style="color:red;">Hapus</font></button></div>
+					<div id="mesej_button" style="display:none"><button data-theme="c" type="button"><font id="mesej_activity" ></font></button></div>
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a data-icon="home" href="#employeeListPage" >Direktori</a></li>
+						<li><a data-icon="star" href="#activityListPage">Aktiviti</a></li>
+					</ul>	
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
